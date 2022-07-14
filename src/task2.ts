@@ -1,10 +1,15 @@
-const csvFilePath='./nodejs-hw1-ex1.csv'
-const csv=require('csvtojson')
-const { pipeline } = require('stream');
-const { promisify } = require('util');
+
+import csv from 'csvtojson'
+import {pipeline} from 'stream';
+import { promisify } from 'util';
+import path from 'path';
+import * as fs from 'fs';
+
 const pipelineAsync = promisify(pipeline);
-const readStream=require('fs').createReadStream(csvFilePath);
-const writeStream=require('fs').createWriteStream('./nodejs-hw1-ex2.txt');
+const csvFilePath=path.join(__dirname,'.csv', 'nodejs-hw1-ex1.csv')
+const txtFilePath=path.join(__dirname,'.csv', 'nodejs-hw1-ex1.txt')
+const readStream = fs.createReadStream(csvFilePath);
+const writeStream=fs.createWriteStream(txtFilePath);
 
 const jsonArray =  csv({
   delimiter:';',

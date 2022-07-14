@@ -1,10 +1,9 @@
-const {Transform} = require('stream') ;
-const {stdin} = require('process')
-const {stdout} = require('process')
+import {Transform} from 'stream' ;
+import {stdin, stdout} from 'process'
+import path from 'path';
 
-  const transform = async () =>
- {
-    class TransformStream extends Transform
+  export const transform = async () =>
+ {    class TransformStream extends Transform
     {
         constructor ( options = {} )
         {
@@ -12,6 +11,7 @@ const {stdout} = require('process')
     }
 
   _transform(chunk: Buffer, enc: any, callback: () => void) {
+
           const chunkStringField = chunk.toString();
           const reverseChunk =`${chunkStringField.split('').reverse().join('')}\n`
     this.push(reverseChunk)

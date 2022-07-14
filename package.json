@@ -2,10 +2,14 @@
   "name": "nodejs-st-22-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+   "main": "src/task1.ts",
   "scripts": {
-    "task1": "nodemon task1.ts",
-    "task2": "nodemon task2.ts",
+    "task1": "npm run build:babel & nodemon dist/task1.ts",
+    "task2": "npm run build:babel & nodemon dist/task2.ts",
+    "task1:tsc": "npm run build:tsc & nodemon src/task1.js",
+    "task2:tsc": "npm run build:tsc & nodemon src/task2.js",
+    "build:babel": "babel src -d  dist --copy-files",
+    "build:tsc":"tsc " ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +26,9 @@
     "csvtojson": "^2.0.10",
     "nodemon": "^2.0.19",
     "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6"
   }
 }
