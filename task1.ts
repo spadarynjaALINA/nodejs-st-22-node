@@ -11,7 +11,7 @@ const {stdout} = require('process')
         super(options)
     }
 
-  _transform(chunk, enc, callback) {
+  _transform(chunk: Buffer, enc: any, callback: () => void) {
           const chunkStringField = chunk.toString();
           const reverseChunk =`${chunkStringField.split('').reverse().join('')}\n`
     this.push(reverseChunk)
