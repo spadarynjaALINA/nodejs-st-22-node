@@ -1,10 +1,10 @@
 import csv from 'csvtojson'
 import path,{dirname} from'path';
 import * as fs from 'fs';
-import { fileURLToPath } from 'url';
+// import { fileURLToPath } from 'url';
 
-const __filename =fileURLToPath(import.meta.url)
-const __dirname =dirname(__filename)
+// const __filename =fileURLToPath(import.meta.url)
+// const __dirname =dirname(__filename)
 const csvFilePath=path.join(__dirname,'.csv', 'nodejs-hw1-ex1.csv')
 const txtFilePath=path.join(__dirname,'.csv', 'nodejs-hw1-ex1.txt')
 const readStream = fs.createReadStream(csvFilePath);
