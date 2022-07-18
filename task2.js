@@ -1,7 +1,6 @@
 var csvFilePath='./nodejs-hw1-ex1.csv'
 var csv=require('csvtojson')
-var { pipeline } = require('stream');
-var { promisify } = require('util');
+
 
 var readStream=require('fs').createReadStream(csvFilePath);
 var writeStream=require('fs').createWriteStream('./nodejs-hw1-ex2.txt');
@@ -20,7 +19,7 @@ var jsonArray =  csv({
 		return fileLineString.split(';').map((item)=>item.toLowerCase()).join(';')
 	}
 	return fileLineString
-}).fromFile(csvFilePath);
+}).fromFile();
 
 
 ( function pipeTransform(){
